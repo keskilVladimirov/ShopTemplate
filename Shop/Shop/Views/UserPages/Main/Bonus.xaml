@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shop.Views.UserPages.Main.Bonus"
+             BackgroundColor="{StaticResource BackgroundPageColor}"
+             Shell.BackgroundColor="{StaticResource HeaderPageColor}"
+             Shell.ForegroundColor="{StaticResource HeaderBackColor}">
+    <Shell.TitleView>
+        <Grid Style="{StaticResource ShellGrid}">
+            <Label Style="{StaticResource ShellHeader}"
+                   Text="Мои бонусы"
+                   x:Name="HeaderLabel"/>
+        </Grid>
+    </Shell.TitleView>
+    <ContentPage.Content>
+        <CollectionView Style="{StaticResource zBonusCollection}"
+                        x:Name="BonusCollection"
+                        ItemsSource="{Binding Bonuss}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Style="{StaticResource zBonusCollectionWrapperGrid}">
+                        <Frame Style="{StaticResource zBonusCollectonFrame}">
+                            <Grid Style="{StaticResource zBonusCollectionInsideGrid}">
+                                <StackLayout Style="{StaticResource zBonusCollectionTextStack}">
+                                    <Label Style="{StaticResource zBonusCollectionLabel}"/>
+                                    <Label Style="{StaticResource zBonusCollectionDate}"
+                                           Text="{Binding Date}"/>
+                                </StackLayout>
+                                <StackLayout Style="{StaticResource zBonusCollectionBonusStack}">
+                                    <Label Style="{StaticResource zBonusCollectionBall}"
+                                           Text="{Binding Ball}"/>
+                                    <ImageButton Style="{StaticResource zBonusCollectionBonus}"
+                                                 x:Name="Bonus"/>
+                                </StackLayout>
+                            </Grid>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>
